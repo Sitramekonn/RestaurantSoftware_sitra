@@ -1,0 +1,48 @@
+@startuml
+!theme plain
+title Complete Order → Show Order Type
+actor Staff
+participant HelloController
+participant OrderService
+collections Orders
+participant Order
+participant TypeLabel
+
+Staff -> HelloController: click "Complete" (orderId)
+HelloController -> OrderService: completeOrder(orderId, orders: Collection<Order>)
+activate OrderService
+
+OrderService -> Orders: stream() / findFirst(id)
+Orders --> OrderService: Optional<Order>
+
+alt order not found
+  OrderService --> HelloController: throw IllegalArgumentException("Order not found")
+  deactivate OrderService
+  return
+end
+
+OrderService -> Order: getStatus()
+alt already COMPLETED or CANCELLED
+  OrderService --> HelloController: throw IllegalStateException("Order is already ...")
+  deactivate OrderService
+  return
+end
+
+OrderService -> Order: getOrderType()
+alt type is null
+  OrderService --> HelloController: throw IllegalStateException("Order type is required")
+  deactivate OrderService
+  return
+end
+
+OrderService -> Order: setStatus(COMPLETED)
+OrderService -> Order: getOrderType()
+OrderService -> TypeLabel: of(orderType)
+TypeLabel --> OrderService: "[Pickup]" / "[To-Go]" / "[Delivery]"
+
+OrderService --> HelloController: return label string
+deactivate OrderService
+
+HelloController -> Staff: show label on UI (e.g., [Pickup])
+
+@enduml

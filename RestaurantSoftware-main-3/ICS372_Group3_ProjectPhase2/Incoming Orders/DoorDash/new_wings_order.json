@@ -1,0 +1,18 @@
+{
+  "order": {
+    "type": "DELIVERY",
+    "order_date": 1698502900000,
+    "items": [
+      {
+        "name": "Buffalo Wings",
+        "quantity": 2,
+        "price": 15.99
+      },
+      {
+        "name": "Ranch Dressing",
+        "quantity": 1,
+        "price": 2.50
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "order": {
+    "type": "togo",
+    "order_date": 1697433600000,
+    "items": [
+      {
+        "name": "BBQ Pulled Pork Sandwich",
+        "quantity": 1,
+        "price": 10.25
+      },
+      {
+        "name": "Mac and Cheese",
+        "quantity": 1,
+        "price": 4.95
+      },
+      {
+        "name": "Coleslaw",
+        "quantity": 1,
+        "price": 2.99
+      },
+      {
+        "name": "Spicy Chicken Tenders",
+        "quantity": 5,
+        "price": 1.10
+      },
+      {
+        "name": "Garlic Parmesan Fries",
+        "quantity": 1,
+        "price": 4.25
+      },
+      {
+        "name": "Mozzarella Sticks",
+        "quantity": 6,
+        "price": 0.90
+      },
+      {
+        "name": "Apple Pie",
+        "quantity": 2,
+        "price": 2.50
+      },
+      {
+        "name": "Iced Coffee",
+        "quantity": 1,
+        "price": 3.75
+      },
+      {
+        "name": "Lemonade",
+        "quantity": 2,
+        "price": 2.85
+      }
+    ]
+  }
+}

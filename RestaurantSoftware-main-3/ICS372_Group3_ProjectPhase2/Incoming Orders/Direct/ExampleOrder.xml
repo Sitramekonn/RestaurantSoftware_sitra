@@ -1,0 +1,18 @@
+
+<Orders>
+	<Order id="485">
+		<OrderType>DELIVERY</OrderType>
+		<Item type="Hamburger">
+			<Price>13.45</Price>
+			<Quantity>2</Quantity>
+		</Item>
+		<Item type="French Fries">
+			<Price>5.25</Price>
+			<Quantity>2</Quantity>
+		</Item>
+		<Item type="Vanilla Shake">
+			<Price>8.99</Price>
+			<Quantity>1</Quantity>
+		</Item>
+	</Order>
+</Orders> 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Orders>
+  <Order id="TEST001">
+    <OrderType>TOGO</OrderType>
+    <Item type="Test Item">
+      <Price>10.00</Price>
+      <Quantity>1</Quantity>
+    </Item>
+  </Order>
+</Orders>

@@ -1,0 +1,18 @@
+=================================
+       RESTAURANT RECEIPT
+=================================
+
+Order ID: 1
+Order Type: DELIVERY
+Order Time: 2023-10-28T14:21:40
+Status: INCOMING
+Source: DoorDash
+
+ITEMS:
+---------------------------------
+Buffalo Wings        x2  $31.98
+Ranch Dressing       x1  $2.50
+---------------------------------
+TOTAL: $34.48
+=================================
+Thank you for your business!

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <VBox spacing="10">
+            <children>
+                <!-- Main toolbar -->
+                <HBox spacing="8.0" BorderPane.alignment="CENTER_LEFT" styleClass="toolbar">
+                    <children>
+                        <Label text="OrderHub - Restaurant Management" styleClass="hub-header" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnExport" text="Export All" />
+                    </children>
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                </HBox>
+                
+                <!-- Statistics and filters -->
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <children>
+                        <!-- Order statistics -->
+                        <VBox spacing="5" styleClass="hub-stats">
+                            <children>
+                                <Label fx:id="statsLabel" text="Orders: 0 Total | 0 Incoming | 0 Started | 0 Completed" style="-fx-font-weight: bold;" />
+                                <Label fx:id="revenueLabel" text="Total Revenue: $0.00" style="-fx-font-size: 12px;" />
+                            </children>
+                        </VBox>
+                        
+                        <Region HBox.hgrow="ALWAYS" />
+                        
+                        <!-- Filter buttons -->
+                        <HBox spacing="8">
+                            <children>
+                                <Label text="Filter:" style="-fx-font-weight: bold;" />
+                                <Button fx:id="btnFilterAll" text="All" styleClass="filter-button,filter-button-active" />
+                                <Button fx:id="btnFilterIncoming" text="Incoming" styleClass="filter-button" />
+                                <Button fx:id="btnFilterStarted" text="Started" styleClass="filter-button" />
+                                <Button fx:id="btnFilterCompleted" text="Completed" styleClass="filter-button" />
+                                <Button fx:id="btnFilterCancelled" text="Cancelled" styleClass="filter-button" />
+                                <Separator orientation="VERTICAL" />
+                                <Button fx:id="btnFilterSource" text="By Source" styleClass="filter-button" />
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding><Insets top="0" right="20" bottom="10" left="20"/></padding>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <content>
+                <FlowPane fx:id="ordersContainer" hgap="15" vgap="15" alignment="TOP_LEFT">
+                    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                </FlowPane>
+            </content>
+        </ScrollPane>
+    </center>
+    <!-- Stylesheet moved to be applied programmatically in MainApp to avoid FXML URL type issues -->
+</BorderPane>

@@ -1,0 +1,177 @@
+/* Basic application styles */
+
+.root {
+    -fx-font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.toolbar {
+    -fx-padding: 10 10 10 10;
+    -fx-background-color: linear-gradient(to bottom, #f7f7f7, #eaeaea);
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.button {
+    -fx-background-radius: 4;
+    -fx-padding: 6 12 6 12;
+}
+
+.button:hover {
+    -fx-background-color: #e7f0ff;
+}
+
+.table-view {
+    -fx-border-color: #dcdcdc;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #f0f0f0, #dcdcdc);
+}
+
+/* Order card styles */
+.order-card {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 1);
+    -fx-cursor: hand;
+    -fx-min-width: 250;
+    -fx-max-width: 250;
+    -fx-min-height: 180;
+}
+
+.order-card:hover {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #007bff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 4, 0, 0, 2);
+}
+
+.order-card-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.order-card-status {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 8 4 8;
+    -fx-background-radius: 12;
+    -fx-text-fill: white;
+}
+
+.status-incoming {
+    -fx-background-color: #28a745;
+}
+
+.status-started {
+    -fx-background-color: #ffc107;
+    -fx-text-fill: #212529;
+}
+
+.status-completed {
+    -fx-background-color: #6c757d;
+}
+
+.status-cancelled {
+    -fx-background-color: #dc3545;
+    -fx-text-decoration: line-through;
+}
+
+/* Cancelled order cards appear grayed out */
+.order-card .status-cancelled {
+    -fx-opacity: 0.7;
+}
+
+.order-card:has(.status-cancelled) {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #ccc;
+}
+
+.order-card-details {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666;
+}
+
+.order-card-source {
+    -fx-font-size: 11px;
+    -fx-text-fill: #888;
+    -fx-font-style: italic;
+}
+
+/* Order type visual indicators */
+.order-type-togo {
+    -fx-border-color: #28a745;
+    -fx-border-width: 0 0 0 4;
+}
+
+.order-type-pickup {
+    -fx-border-color: #ffc107;
+    -fx-border-width: 0 0 0 4;
+}
+
+.order-type-delivery {
+    -fx-border-color: #007bff;
+    -fx-border-width: 0 0 0 4;
+}
+
+.order-type-indicator {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-padding: 2 6 2 6;
+    -fx-font-size: 12px;
+}
+
+.type-togo {
+    -fx-background-color: #d4edda;
+    -fx-border-color: #28a745;
+    -fx-text-fill: #155724;
+}
+
+.type-pickup {
+    -fx-background-color: #fff3cd;
+    -fx-border-color: #ffc107;
+    -fx-text-fill: #856404;
+}
+
+.type-delivery {
+    -fx-background-color: #d1ecf1;
+    -fx-border-color: #007bff;
+    -fx-text-fill: #0c5460;
+}
+
+.order-type-label {
+    -fx-font-weight: bold;
+}
+
+/* OrderHub specific styles */
+.hub-header {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.hub-stats {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-padding: 10;
+}
+
+.filter-button {
+    -fx-background-radius: 15;
+    -fx-padding: 5 10 5 10;
+    -fx-font-size: 11px;
+}
+
+.filter-button-active {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+}

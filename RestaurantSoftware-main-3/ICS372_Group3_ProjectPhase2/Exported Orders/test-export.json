@@ -1,0 +1,12 @@
+[ {
+  "orderId" : "TEST001",
+  "orderType" : "TOGO",
+  "orderTime" : null,
+  "status" : "INCOMING",
+  "items" : [ {
+    "name" : "Test Item",
+    "quantity" : 1,
+    "price" : 10.0
+  } ],
+  "source" : "unknown"
+} ]

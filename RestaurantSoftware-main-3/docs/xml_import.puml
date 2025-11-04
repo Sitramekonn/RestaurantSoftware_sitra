@@ -1,0 +1,36 @@
+@startuml
+!theme plain
+title XML Import - Automatic Directory Detection
+
+participant DirectoryWatcher
+participant MainController
+participant XMLParser
+participant OrderTracker
+participant MainApp
+
+autonumber
+
+== File Detected ==
+DirectoryWatcher -> MainController: handleFileDetected(fileName, companyName)
+activate MainController
+
+alt Already loaded
+    ' skip
+else New file
+    MainController -> XMLParser: readOrderFromExternalFile(fullPath)
+    XMLParser --> MainController: Order
+
+    MainController -> Order: setSource(companyName)
+    MainController -> OrderTracker: addOrder(order)
+
+    MainController -> MainController: refreshOrders() ' 1st (direct)
+    MainController -> MainController: persistCurrentState()
+
+    MainController -> MainApp: Platform.runLater(refreshOrders) ' 2nd
+    activate MainApp
+    MainApp --> MainApp: refreshOrderCards()
+    deactivate MainApp
+end
+
+deactivate MainController
+@enduml

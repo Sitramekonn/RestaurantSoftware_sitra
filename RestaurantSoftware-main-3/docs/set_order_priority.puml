@@ -1,0 +1,22 @@
+@startuml
+actor "Restaurant Staff" as Staff
+participant "MainApp UI" as UI
+participant "MainController" as Controller
+participant "Order (Model)" as Order
+participant "OrderList/Sorter" as Sorter
+participant "DataStore" as Store
+
+Staff -> UI: Select order; choose High Priority
+UI -> Controller: setPriority(orderId, HIGH)
+Controller -> Order: setPriority(HIGH)
+Order --> Controller: ack
+Controller -> Store: persist(order)
+Store --> Controller: ack
+Controller -> Sorter: resortOrders()
+Sorter --> Controller: sortedList
+Controller -> UI: refreshGrid(sortedList)
+
+alt All orders equal priority
+  Controller -> UI: refreshGrid(currentList)
+end
+@enduml

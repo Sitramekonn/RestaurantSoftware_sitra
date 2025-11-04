@@ -1,0 +1,31 @@
+=================================
+       RESTAURANT RECEIPT
+=================================
+
+Order ID: 3
+Order Type: DELIVERY
+Order Time: 2021-08-03T14:13:19.999
+Status: INCOMING
+Source: UberEats
+
+ITEMS:
+---------------------------------
+Margherita Pizza     x2  $23.00
+BBQ Chicken Pizza    x1  $13.75
+Greek Salad          x1  $6.95
+Mozzarella Sticks    x2  $11.00
+Lemonade             x3  $6.75
+Garlic Knots         x2  $8.00
+Spaghetti Carbonara  x1  $12.95
+Tiramisu             x2  $13.00
+Bottle of Water      x4  $6.00
+Espresso             x2  $6.50
+Meatball Sub         x1  $9.95
+Onion Rings          x1  $4.75
+Chicken Alfredo      x1  $14.25
+Apple Pie            x1  $5.00
+Vanilla Milkshake    x2  $9.00
+---------------------------------
+TOTAL: $150.85
+=================================
+Thank you for your business!

@@ -1,0 +1,18 @@
+{
+  "order": {
+    "type": "DELIVERY",
+    "order_date": 1698502800000,
+    "items": [
+      {
+        "name": "Test Burger",
+        "quantity": 1,
+        "price": 12.99
+      },
+      {
+        "name": "Test Fries",
+        "quantity": 1,
+        "price": 4.99
+      }
+    ]
+  }
+}

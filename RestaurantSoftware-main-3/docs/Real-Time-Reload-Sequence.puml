@@ -1,0 +1,69 @@
+@startuml
+!theme plain
+title Real-Time Order Reload
+
+participant MainController
+participant DirectoryWatcher
+participant JSONParser
+participant XMLParser
+participant ObservableList
+participant Order
+
+autonumber
+
+== System Initialization ==
+MainController -> DirectoryWatcher: startDirectoryWatching()
+activate DirectoryWatcher
+DirectoryWatcher -> DirectoryWatcher: monitor directories
+MainController -> ObservableList: initialize with existing orders
+
+== File Detection ==
+DirectoryWatcher -> MainController: notifyFileChange(filePath)
+activate MainController
+
+== Order Processing ==
+MainController -> MainController: validate file accessibility
+
+alt JSON File
+    MainController -> JSONParser: parseOrderFile(filePath)
+    JSONParser --> MainController: Order
+else XML File
+    MainController -> XMLParser: parseOrderFile(filePath)
+    XMLParser --> MainController: Order
+end
+
+== Duplicate Detection ==
+MainController -> MainController: checkForDuplicateOrder(orderId)
+
+alt Order is duplicate
+    MainController -> MainController: log duplicate and ignore
+else Order is new
+    MainController -> ObservableList: add(order)
+    MainController -> MainController: refreshOrders()
+end
+
+deactivate MainController
+deactivate DirectoryWatcher
+@enduml
+    GUI -> Staff: Show new order in list with visual confirmation
+end
+
+== Error Handling (Alternative Flow) ==
+alt File is corrupted
+    Parser -> Controller: throw parsing exception
+    Controller -> Controller: log error with file details
+    Controller -> GUI: display error notification
+    GUI -> Staff: Show error message
+    Controller -> FileSystem: move file to error directory
+else File access denied
+    Controller -> Controller: log access error
+    Controller -> GUI: display access error
+    GUI -> Staff: Show access error message
+end
+
+== Continuous Monitoring ==
+note over Watcher, FileSystem: DirectoryWatcher continues monitoring\nfor new files during restaurant hours
+Watcher -> Watcher: maintain file system watch
+note right: System ready for next order
+
+@enduml

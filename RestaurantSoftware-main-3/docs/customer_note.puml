@@ -1,0 +1,26 @@
+@startuml
+actor "Restaurant Staff" as Staff
+participant "MainApp UI" as UI
+participant "MainController" as Controller
+participant "Order (Model)" as Order
+participant "DataStore" as Store
+
+Staff -> UI: Open order dialog
+UI -> Controller: openOrderDialog(orderId)
+Controller -> Order: getDetails(orderId)
+Order --> Controller: details
+Controller -> UI: showDialog(details + noteField)
+
+Staff -> UI: Type note and click Save
+UI -> Controller: saveCustomerNote(orderId, note)
+Controller -> Order: setCustomerNote(note)
+Order --> Controller: ack
+Controller -> Store: persist(order)
+Store --> Controller: ack
+Controller -> UI: refreshDialog(order)
+
+alt Note is blank
+  UI -> Controller: saveCustomerNote(orderId, "")
+  Controller -> UI: noOp / keepExistingNote()
+end
+@enduml

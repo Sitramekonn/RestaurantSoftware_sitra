@@ -1,0 +1,32 @@
+@startuml
+!theme plain
+title Cancel Order
+
+participant MainController
+participant OrderTracker
+participant Order
+participant ObservableList
+
+autonumber
+
+== Order Cancellation ==
+MainController -> MainController: cancel(orderId)
+activate MainController
+
+MainController -> OrderTracker: cancelOrder(orderId)
+activate OrderTracker
+
+alt Order is cancelable (INCOMING or STARTED)
+    OrderTracker -> Order: setStatus(CANCELED)
+    OrderTracker --> MainController: return success
+    MainController -> ObservableList: update order state
+    MainController -> MainController: refreshOrders()
+else Order already COMPLETED
+    OrderTracker --> MainController: throw error ("Cannot cancel completed order")
+else Order already CANCELED (idempotent)
+    OrderTracker --> MainController: return (no change)
+end
+
+deactivate OrderTracker
+deactivate MainController
+@enduml

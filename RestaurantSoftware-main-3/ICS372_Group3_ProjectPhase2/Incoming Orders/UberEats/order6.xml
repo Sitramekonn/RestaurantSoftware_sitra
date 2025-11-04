@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Orders>
+	<Order id="487">
+		<OrderType>TOGO</OrderType>
+		<Item type="Chicken Wings">
+			<Price>12.99</Price>
+			<Quantity>2</Quantity>
+		</Item>
+		<Item type="Onion Rings">
+			<Price>6.25</Price>
+			<Quantity>1</Quantity>
+		</Item>
+		<Item type="Soft Drink">
+			<Price>2.50</Price>
+			<Quantity>3</Quantity>
+		</Item>
+	</Order>
+</Orders>

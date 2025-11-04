@@ -1,0 +1,51 @@
+@startuml
+!theme plain
+title Save Receipt
+
+participant MainApp
+participant MainController
+participant OrderTracker
+participant Order
+
+autonumber
+
+== Receipt Generation ==
+MainApp -> MainApp: saveOrderReceipt(orderId)
+activate MainApp
+
+MainApp -> MainController: saveReceipt(orderId)
+activate MainController
+
+== Order Validation ==
+MainController -> OrderTracker: getOrder(orderId)
+activate OrderTracker
+OrderTracker --> MainController: Order object
+deactivate OrderTracker
+
+alt Order not found
+    MainController --> MainApp: throw IllegalArgumentException("Order not found")
+    MainApp -> MainApp: showError("Order not found")
+else Order exists
+    == Receipt Text Generation ==
+    MainController -> Order: toReceiptText()
+    activate Order
+    Order --> MainController: formatted receipt string
+    deactivate Order
+    
+    == File Operations ==
+    MainController -> MainController: create Receipts directory if needed
+    MainController -> MainController: generate timestamped filename
+    MainController -> MainController: write receipt to file
+    
+    alt File save successful
+        MainController --> MainApp: return saved file path
+        MainApp -> MainApp: showInfo("Receipt saved successfully!")
+    else File save failed
+        MainController --> MainApp: throw IOException("Failed to save")
+        MainApp -> MainApp: showError("Failed to save receipt")
+    end
+end
+
+deactivate MainController
+deactivate MainApp
+@enduml

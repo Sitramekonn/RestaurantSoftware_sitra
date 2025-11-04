@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Orders>
+	<Order id="486">
+		<OrderType>PICKUP</OrderType>
+		<Item type="Pizza Margherita">
+			<Price>15.99</Price>
+			<Quantity>1</Quantity>
+		</Item>
+		<Item type="Caesar Salad">
+			<Price>8.50</Price>
+			<Quantity>2</Quantity>
+		</Item>
+		<Item type="Garlic Bread">
+			<Price>4.75</Price>
+			<Quantity>1</Quantity>
+		</Item>
+	</Order
+</Orders>
